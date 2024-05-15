@@ -1,26 +1,29 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const pages = document.querySelectorAll(".page");
-    
-    function showPage(pageId) {
-        pages.forEach(page => {
-            if (page.id === pageId) {
-                page.classList.add("show");
-            } else {
-                page.classList.remove("show");
-            }
-        });
+const slides = document.querySelectorAll('.slide');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+let currentSlide = 0;
+
+function showSlide(n) {
+  slides.forEach((slide, index) => {
+    if (index === n) {
+      slide.classList.add('active');
+    } else {
+      slide.classList.remove('active');
     }
+  });
+}
 
-    // Initial page load
-    showPage("home");
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
 
-    // Navigation
-    const navLinks = document.querySelectorAll("nav a");
-    navLinks.forEach(link => {
-        link.addEventListener("click", function(event) {
-            event.preventDefault();
-            const targetPageId = this.getAttribute("href").substring(1);
-            showPage(targetPageId);
-        });
-    });
-});
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+prevBtn.addEventListener('click', prevSlide);
+nextBtn.addEventListener('click', nextSlide);
+
+showSlide(currentSlide);

@@ -43,18 +43,6 @@ footer {
     padding: 20px;
 }
 
-/* Animations */
-/* .page {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.page.show {
-    opacity: 1;
-    transform: translateY(0);
-} */
-
 script{
   z-index: -5;
 }
