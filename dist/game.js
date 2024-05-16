@@ -27,7 +27,7 @@ function init() {
 
         var geometry = new THREE.BoxBufferGeometry(100, 100, 100);
         var material = new THREE.MeshNormalMaterial();
-        for (var i = 0; i < 60; i++) {
+        for (var i = 0; i < 500; i++) {
             var mesh = new THREE.Mesh(geometry, material);
             mesh.position.x = Math.random() * 2000 - 1000;
             mesh.position.y = Math.random() * 2000 - 1000;
